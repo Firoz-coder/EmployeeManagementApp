@@ -1,0 +1,29 @@
+<div class="parent">
+          <head>
+                    <title>LOG IN FORM</title>
+          </head>
+
+         
+                    <div class="login">
+                              <h1>LOG IN</h1>
+                              <form method="post">
+                                        <div class="input_field"> 
+                                                  <input type="user" [(ngModel)]="loginObj.username" name="username" required>
+                                                  <span></span>
+                                                  <label>Username/Email</label>
+                                        </div>
+                                        <div class="input_field"> 
+                                                  <input type="password" [(ngModel)]="loginObj.password" name="password" required>
+                                                  <span></span>
+                                                  <label>Password</label>
+                                        </div>
+                                        <div class="pass">Forgot Password?</div>
+                                        <input type="button" (click)="onLogin()" value="Log In">
+                                        <div class="sign-up">
+                                                  Not a member? <a href="#">Sign Up HERE</a>
+                                        </div>
+                              </form>
+         
+
+          
+</div>
