@@ -29,4 +29,15 @@ export class MasterService {
    getAllEmployee(): Observable<Employee[]>{
     return this.http.get<Employee[]>(this.apiUrl + "GetAllEmployees")
    }
+
+   updateEmp(obj: Employee): Observable<IApiResponse>{
+    debugger;
+    return this.http.put<IApiResponse>(this.apiUrl + "UpdateEmployee/" + obj.employeeId, obj);
+   }
+
+   deleteEmpById(id: number): Observable<IApiResponse>{
+    debugger;
+    return this.http.delete<IApiResponse>(this.apiUrl + "DeleteEmployee/" + id);
+   }
+   
 }

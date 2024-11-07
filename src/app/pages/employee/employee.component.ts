@@ -49,17 +49,41 @@ export class EmployeeComponent implements OnInit {
     this.masterSrv.saveEmp(this.employeeObj).subscribe((res:IApiResponse)=>{
       debugger;
       alert("Employee Created");
+      this.getEmployees();
+      this.employeeObj = new Employee();
     },error=>{
-
+      alert('API error');
     })
   }
 
-  onEdit(){
-
+  onEdit(data: Employee){
+    this.employeeObj = data;
+    this.isFormVisible.set(true);
   }
 
-  onDelete(){
-    
+  onUpdate(){
+    debugger;
+    this.masterSrv.updateEmp(this.employeeObj).subscribe((res:IApiResponse)=>{
+      debugger;
+      alert("Employee Updated");
+      this.getEmployees();
+      this.employeeObj = new Employee();
+    },error=>{
+      alert('API error');
+    })
+  }
+
+  onDelete(id: number){
+    const isDelete = confirm("Are you sure you want to delete");
+    if (isDelete) {
+      this.masterSrv.deleteEmpById(id).subscribe((res:IApiResponse)=>{
+        debugger;
+        alert("Employee deleted");
+        this.getEmployees();
+      },error=>{
+        alert('API error');
+      })
+    }
   }
 
 }
